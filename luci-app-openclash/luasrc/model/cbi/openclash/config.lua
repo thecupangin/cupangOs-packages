@@ -202,17 +202,6 @@ uci:commit("openclash")
 HTTP.redirect(luci.dispatcher.build_url("admin", "services", "openclash", "config"))
 end
 
-btned=tb:option(Button,"edit",translate("Edit"))
-btned.render=function(o,t,a)
-o.inputstyle="apply"
-Button.render(o,t,a)
-end
-btned.write=function(a,t)
-	local file_path = "etc/openclash/config/" .. fs.basename(e[t].name)
-	HTTP.redirect(DISP.build_url("admin", "services", "openclash", "other-file-edit", "config", "%s") %file_path)
-end
-
-
 btncp=tb:option(Button,"copy",translate("Copy Config"))
 btncp.template="openclash/other_button"
 btncp.render=function(o,t,a)
@@ -409,7 +398,7 @@ def.write = function(self, section, value)
 end
 
 local t = {
-    {Commit, Create, Apply}
+    {Commit, Apply}
 }
 
 a = m:section(Table, t)
@@ -421,11 +410,6 @@ o.write = function()
 	fs.unlink("/tmp/Proxy_Group")
   uci:commit("openclash")
 end
-
-o = a:option(DummyValue, "Create", " ")
-o.rawhtml = true
-o.template = "openclash/input_file_name"
-o.value = "/etc/openclash/config/"
 
 o = a:option(Button, "Apply", " ")
 o.inputtitle = translate("Apply Settings")

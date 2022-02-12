@@ -72,12 +72,9 @@ localhost.sec.qq.com
 #Game
 #Nintendo Switch
 +.srv.nintendo.net
-*.n.n.srv.nintendo.net
 #Sony PlayStation
 +.stun.playstation.net
 #Microsoft Xbox
-xbox.*.*.microsoft.com
-*.*.xboxlive.com
 xbox.*.microsoft.com
 xnotify.xboxlive.com
 #Wotgame
@@ -94,7 +91,6 @@ stun.*.*.*
 +.stun.*.*
 +.stun.*.*.*
 +.stun.*.*.*.*
-+.stun.*.*.*.*.*
 #Linksys Router
 heartbeat.belkin.com
 *.linksys.com
